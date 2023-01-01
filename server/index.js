@@ -33,7 +33,7 @@ app.listen(port, function (err) {
     if (err) {
         console.log('Server failed to start')
     } else {
-        console.log("Server started at port", 'http://localhost:8030');
+        console.log("Server started at port", `http://localhost:${port}/showproducts`);
     }
 });
 
