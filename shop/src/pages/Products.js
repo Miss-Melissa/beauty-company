@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 
 function Products() {
@@ -31,6 +32,7 @@ function Products() {
                         <p>{element.productprice} kr</p>
                         <p>{element.productdesc}</p>
                         <br></br>
+                        <Link to={`/product/${element.id}`}><button>Go to product</button></Link>
                         <hr></hr>
                     </div>
 
