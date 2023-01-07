@@ -49,7 +49,7 @@ function UpdateProduct() {
     }
 
 
-    // ----- Update -----
+    // ----- Update function ----
     const setProduct = async (e) => {
         e.preventDefault();
 
@@ -72,6 +72,7 @@ function UpdateProduct() {
                 console.log(err);
             });
     }
+
 
 
 

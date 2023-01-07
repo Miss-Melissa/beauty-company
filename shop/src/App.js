@@ -11,6 +11,9 @@ import Home from './pages/Home';
 import Admin from './pages/Admin';
 import UpdateProduct from './pages/Updateproduct'
 import NoMatch from './components/NoMatch';
+import Register from './pages/Register';
+import Login from './pages/Login';
+
 function App() {
   return (
     <div>
@@ -22,7 +25,11 @@ function App() {
           <Route path="/product/:id" element={<Product />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="/update/:id" element={<UpdateProduct />} />
+          <Route path="/register" element={<Register />}></Route>
+          <Route path="/login" element={<Login />}></Route>
           <Route path="*" element={<NoMatch />}></Route>
+
+
         </Routes>
       </BrowserRouter>
 
