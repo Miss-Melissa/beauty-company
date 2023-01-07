@@ -40,7 +40,6 @@ function UpdateProduct() {
         setProductDesc(e.target.value)
     }
 
-
     const setName = (e) => {
         setProductName(e.target.value)
     }
@@ -50,6 +49,7 @@ function UpdateProduct() {
     }
 
 
+    // ----- Update -----
     const setProduct = async (e) => {
         e.preventDefault();
 
@@ -72,7 +72,6 @@ function UpdateProduct() {
                 console.log(err);
             });
     }
-
 
 
 
