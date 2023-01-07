@@ -16,7 +16,7 @@ function UpdateProduct() {
 
 
     useEffect(() => {
-        Axios.get(`http://localhost:8030/showProduct/${id}`)
+        Axios.get(`http://localhost:8000/showProduct/${id}`)
             .then(res => {
                 const productname = res.data.data[0].productname;
                 const productprice = res.data.data[0].productprice;
@@ -25,6 +25,8 @@ function UpdateProduct() {
 
                 console.log(productname);
                 console.log(productprice);
+                console.log(productdesc);
+                console.log(image);
                 setProductName(productname);
                 setProductPrice(productprice);
                 setProductDesc(productdesc);
@@ -50,14 +52,19 @@ function UpdateProduct() {
 
 
     // ----- Update function ----
-    const setProduct = async (e) => {
+    const updateProduct = async (e) => {
         e.preventDefault();
 
         let formTitle = new FormData();
-
-        formTitle.append('productname', productname);
-        formTitle.append('productprice', productprice);
-        formTitle.append('productdesc', productdesc);
+        if (productname !== null) {
+            formTitle.append('productname', productname);
+        }
+        if (productprice !== null) {
+            formTitle.append('productprice', productprice);
+        }
+        if (productprice !== null) {
+            formTitle.append('productdesc', productdesc);
+        }
         if (file !== null) {
             formTitle.append('image', file);
         }
@@ -80,7 +87,7 @@ function UpdateProduct() {
     return (
 
         <div>
-            <form onSubmit={setProduct}>
+            <form onSubmit={updateProduct}>
                 <input type="text" name="productname" value={productname || ''} onChange={setName} />
                 <br></br>
                 <input type="number" name="productprice" value={productprice || ''} onChange={setPrice} />
