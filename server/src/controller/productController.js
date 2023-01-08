@@ -60,7 +60,7 @@ const createProduct = async (req, res, next) => {
                     });
                 } else {
                     res.send({
-                        message: "Successfully created a customer id: " + id,
+                        message: "Successfully created a customer with id: " + id,
                     });
                 }
             }
