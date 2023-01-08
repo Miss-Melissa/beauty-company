@@ -16,6 +16,7 @@ function Register() {
     }
 
 
+    // ---- function register ----
     const register = async (e) => {
         e.preventDefault();
 
@@ -29,7 +30,7 @@ function Register() {
             headers: { "Content-Type": "application/json" },
         })
             .then((res) => {
-                console.log(res.data);
+                console.log(res);
             })
             .catch((err) => {
                 console.log(err);
@@ -39,6 +40,7 @@ function Register() {
 
     return (
         <div>
+            <h1>Register</h1>
             <form onSubmit={register}>
                 <label>Username:</label>
                 <input type="text" name="username" onChange={setUser} />
