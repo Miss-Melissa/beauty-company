@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
-import { set } from 'mobx';
 
 
 function Login() {
@@ -9,38 +8,47 @@ function Login() {
 
     const [loginStatus, setLoginStatus] = useState('');
 
-
-
-
     // ---- function register ----
     const login = async (e) => {
         e.preventDefault();
-
-
 
         Axios.post('http://localhost:8030/loginUser',
             {
                 headers: { "Content-Type": "application/json" },
                 username: username,
-                password: password
+                password: password,
             })
-
             .then((response) => {
                 console.log(response)
-                console.log(response.data.message)
                 if (response.data.message) {
                     setLoginStatus(response.data.message)
                 } else {
-                    setLoginStatus(response.data[0].username);
+                    setLoginStatus(response.data);
                 }
-
             })
-            .catch((response, err) => {
-                console.log(response.err);
+            .catch((err) => {
+                console.log(err.response);
             });
     }
 
+    Axios.defaults.withCredentials = true
 
+
+    useEffect(() => {
+
+        Axios.get('http://localhost:8030/loginStatus', {
+        })
+            .then((response) => {
+                console.log(response)
+                if (response.data.loggedIn === true) {
+                    setLoginStatus(response.data.user[0].username)
+                }
+            })
+            .catch((error) => {
+                console.log(error)
+
+            })
+    }, []);
 
     const setUser = (e) => {
         setUsername(e.target.value)

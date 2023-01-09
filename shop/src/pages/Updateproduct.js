@@ -13,10 +13,10 @@ function UpdateProduct() {
 
 
     const { id } = useParams();
-
+    console.log(id)
 
     useEffect(() => {
-        Axios.get(`http://localhost:8000/showProduct/${id}`)
+        Axios.get(`http://localhost:8030/showProduct/${id}`)
             .then(res => {
                 const productname = res.data.data[0].productname;
                 const productprice = res.data.data[0].productprice;
@@ -56,18 +56,10 @@ function UpdateProduct() {
         e.preventDefault();
 
         let formTitle = new FormData();
-        if (productname !== null) {
-            formTitle.append('productname', productname);
-        }
-        if (productprice !== null) {
-            formTitle.append('productprice', productprice);
-        }
-        if (productprice !== null) {
-            formTitle.append('productdesc', productdesc);
-        }
-        if (file !== null) {
-            formTitle.append('image', file);
-        }
+        formTitle.append('productname', productname);
+        formTitle.append('productprice', productprice);
+        formTitle.append('productdesc', productdesc);
+        formTitle.append('image', file);
 
         Axios.put(`http://localhost:8030/updateProduct/${id}`, formTitle, {
             headers: { "Content-Type": "multipart/form-data" },

@@ -3,12 +3,20 @@ const cors = require('cors');
 const mysql = require('mysql');
 const bodyparser = require('body-parser');
 const cookieparser = require('cookie-parser');
-const routes = require('./src/routes/routes')
-
+const session = require('express-session');
+const routes = require('./src/routes/routes');
 
 const app = express();
 const router = express.Router();
 
+
+const corsConfig = {
+    origin: true,
+    credentials: true,
+};
+
+app.use(cors(corsConfig));
+app.options('*', cors(corsConfig));
 
 
 var db = mysql.createConnection({
@@ -41,7 +49,16 @@ app.listen(port, function (err) {
 app.use(bodyparser.urlencoded({ extended: true }));
 app.use(bodyparser.json());
 app.use(cookieparser());
-app.use(cors());
+
+app.use(session({
+    key: routes.userId,
+    secret: "subscribe",
+    resave: true,
+    saveUninitialized: true,
+    cookie: {
+        expires: 60 * 60 * 24,
+    }
+}))
 
 
 //making our db accessible to db

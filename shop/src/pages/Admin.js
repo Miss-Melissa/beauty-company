@@ -89,10 +89,12 @@ function Admin() {
                 <input type="submit" value="Add" />
             </form>
 
+
             {Array.isArray(products.data)
                 ? products.data.map((element, id) => {
                     return <table key={id}>
                         <tbody>
+
                             <tr>
                                 <th>Title</th>
                                 <th>Image</th>
@@ -112,21 +114,10 @@ function Admin() {
                             </tr>
 
                         </tbody>
-
-
-
                     </table>
-
-
-
-
                 })
                 : null}
-
-
         </div>
-
-
     )
 }
 

@@ -5,11 +5,11 @@ import { Link } from 'react-router-dom'
 function Products() {
     const [products, setProducts] = useState([]);
 
-    const fetchData = async () => {
+    const getProducts = async () => {
         try {
             const response = await fetch('http://localhost:8030/showProducts');
             const data = await response.json();
-            console.log(data);
+            console.log(data.message);
             setProducts(data);
         } catch (error) {
             console.log(error);
@@ -17,7 +17,7 @@ function Products() {
     }
 
     useEffect(() => {
-        fetchData();
+        getProducts();
     }, []);
 
 

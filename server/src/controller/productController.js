@@ -28,11 +28,10 @@ const showProduct = async (req, res, next) => {
     let results = await db.query("select * from products where id = ?", id, function (err, rows) {
         if (err) {
             throw err
-            console.log(err)
         }
         else {
             res.send({
-                message: "Success!",
+                message: "Success got single product!",
                 data: rows
             });
         }

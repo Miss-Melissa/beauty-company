@@ -6,11 +6,11 @@ function Product() {
     const [product, setProduct] = useState([]);
     const params = useParams();
 
-    const fetchData = async () => {
+    const getProduct = async () => {
         try {
             const response = await fetch('http://localhost:8030/showProduct/' + params.id);
             const data = await response.json();
-            console.log(data);
+            console.log(data.message);
 
             setProduct(data);
         } catch (error) {
@@ -19,7 +19,7 @@ function Product() {
     }
 
     useEffect(() => {
-        fetchData();
+        getProduct();
     }, []);
 
 
