@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
 
+Axios.defaults.withCredentials = true
 
 function Login() {
     const [username, setUsername] = useState('');
@@ -31,7 +32,6 @@ function Login() {
             });
     }
 
-    Axios.defaults.withCredentials = true
 
 
     useEffect(() => {

@@ -3,6 +3,7 @@ import Axios from 'axios';
 import { Link } from "react-router-dom";
 
 
+
 function Admin() {
     const [productName, setProductName] = useState('');
     const [productPrice, setProductPrice] = useState('');
@@ -26,6 +27,7 @@ function Admin() {
     useEffect(() => {
         fetchData();
     }, []);
+
 
 
     const setPrice = (e) => {
@@ -117,6 +119,8 @@ function Admin() {
                     </table>
                 })
                 : null}
+
+
         </div>
     )
 }
