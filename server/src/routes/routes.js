@@ -30,5 +30,7 @@ router.get('/showProduct/:id', controller.showProduct);
 router.post('/registerUser', userController.registerUser);
 router.post('/loginUser', userController.loginUser);
 router.get('/loginStatus', userController.loginStatus);
+router.get('/logout', userController.logout);
+
 
 module.exports = router;

@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Axios from 'axios';
 
 Axios.defaults.withCredentials = true
@@ -26,6 +27,7 @@ function Login() {
                 } else {
                     setLoginStatus(response.data);
                 }
+                localStorage.setItem('user-info', JSON.stringify(response.data));
             })
             .catch((err) => {
                 console.log(err.response);
@@ -33,22 +35,6 @@ function Login() {
     }
 
 
-
-    useEffect(() => {
-
-        Axios.get('http://localhost:8030/loginStatus', {
-        })
-            .then((response) => {
-                console.log(response)
-                if (response.data.loggedIn === true) {
-                    setLoginStatus(response.data.user[0].username)
-                }
-            })
-            .catch((error) => {
-                console.log(error)
-
-            })
-    }, []);
 
     const setUser = (e) => {
         setUsername(e.target.value)
@@ -69,11 +55,13 @@ function Login() {
                 <input type="text" onChange={setPass} />
                 <br></br>
                 <input type="submit" value="Login" />
+                <br></br>
             </form>
 
 
             <h1>{loginStatus}</h1>
 
+            <Link to="/register">Register</Link>
 
 
 

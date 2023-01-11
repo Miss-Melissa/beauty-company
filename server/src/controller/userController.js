@@ -3,7 +3,7 @@ const saltRounds = 10;
 
 
 
-const registerUser = (req, res, next) => {
+const registerUser = (req, res) => {
     try {
         var db = req.db;
         var id = Math.floor(Math.random() * 9000000) + 100000000;
@@ -40,7 +40,7 @@ const registerUser = (req, res, next) => {
 
 
 
-const loginUser = async (req, res, next) => {
+const loginUser = async (req, res) => {
     try {
         var db = req.db;
         const username = req.body.username;
@@ -77,7 +77,7 @@ const loginUser = async (req, res, next) => {
 };
 
 
-const loginStatus = (req, res, next) => {
+const loginStatus = (req, res) => {
     if (req.session.user) {
         res.send({ loggedIn: true, user: req.session.user })
     } else {
@@ -85,8 +85,20 @@ const loginStatus = (req, res, next) => {
     }
 }
 
+const logout = (req, res) => {
+    if (req.session.user) {
+        req.session.destroy(err => {
+            if (err) {
+                res.status(400).send('Unable to log out')
+            } else {
+                res.send('Logout successful')
+            }
+        });
+    } else {
+        res.end()
+    }
+
+}
 
 
-
-
-module.exports = { registerUser, loginUser, loginStatus }
+module.exports = { registerUser, loginUser, loginStatus, logout }
