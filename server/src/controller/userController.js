@@ -59,7 +59,7 @@ const loginUser = async (req, res) => {
                         if (response) {
                             req.session.user = result;
                             console.log(req.session.user)
-                            res.send("Youre logged in as user: " + result[0].username);
+                            res.send(result);
                         } else {
                             res.send({ message: "Wrong password" });
                         }
