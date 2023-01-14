@@ -62,6 +62,7 @@ function Admin() {
         })
             .then((res) => {
                 console.log(res);
+                window.location.reload(false);
             })
             .catch((err) => {
                 console.log(err);
@@ -70,6 +71,7 @@ function Admin() {
 
     const deleteProduct = (product) => {
         Axios.delete(`http://localhost:8030/deleteProduct/${product}`)
+        window.location.reload(false);
     }
 
 

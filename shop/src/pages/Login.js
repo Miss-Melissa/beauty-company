@@ -1,14 +1,18 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Axios from 'axios';
 
+
 Axios.defaults.withCredentials = true
+
 
 function Login() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
     const [loginStatus, setLoginStatus] = useState('');
+
+    const navigate = useNavigate();
 
     // ---- function register ----
     const login = async (e) => {
@@ -26,6 +30,8 @@ function Login() {
                     setLoginStatus(response.data.message)
                 } else {
                     setLoginStatus(response.data);
+                    navigate('/')
+                    window.location.reload(false);
                 }
                 localStorage.setItem('user-info', JSON.stringify(response.data));
             })
@@ -49,10 +55,10 @@ function Login() {
             <h1>Login</h1>
             <form onSubmit={login}>
                 <label>Username</label>
-                <input type="text" onChange={setUser} />
+                <input type="text" onChange={setUser} required />
                 <br></br>
                 <label>Password</label>
-                <input type="text" onChange={setPass} />
+                <input type="text" onChange={setPass} required />
                 <br></br>
                 <input type="submit" value="Login" />
                 <br></br>

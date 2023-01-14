@@ -1,10 +1,14 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import Axios from 'axios'
+
 
 
 function Register() {
     const [username, setUserName] = useState('');
     const [password, setPassword] = useState('');
+
+    const navigate = useNavigate();
 
 
     const setUser = (e) => {
@@ -31,6 +35,9 @@ function Register() {
         })
             .then((res) => {
                 console.log(res.data);
+                navigate('/login');
+                localStorage.setItem('user-info', JSON.stringify(res.data));
+                window.location.reload(false);
             })
             .catch((err) => {
                 console.log(err);
@@ -43,10 +50,10 @@ function Register() {
             <h1>Register</h1>
             <form onSubmit={register}>
                 <label>Username:</label>
-                <input type="text" name="username" onChange={setUser} />
+                <input type="text" name="username" onChange={setUser} required />
                 <br></br>
                 <label>Password:</label>
-                <input type="text" name="password" onChange={setPass} />
+                <input type="text" name="password" onChange={setPass} required />
                 <br></br>
                 <input type="submit" value="Register" />
             </form>

@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from 'react-router-dom'
+import { Cartcontext } from '../context/Context';
 
 
 function Products() {
@@ -20,19 +21,23 @@ function Products() {
         getProducts();
     }, []);
 
-
+    const Globalstate = useContext(Cartcontext);
+    const dispatch = Globalstate.dispatch;
+    console.log(Globalstate);
     return (
         <div>
-
             {Array.isArray(products.data)
                 ? products.data.map((element, id) => {
+                    element.quantity = 1;
                     return <div key={id}>
-                        <h2>{element.productname}</h2>
                         <img src={`http://localhost:8030/src/image/${element.image}`} alt={element.productname} height="200px" width="200px" />
+                        <h2>{element.productname}</h2>
                         <p>{element.productprice} kr</p>
-                        <p>{element.productdesc}</p>
                         <br></br>
-                        <Link to={`/product/${element.id}`}><button>Go to product</button></Link>
+                        <Link to={`/product/${element.id}`}>View details</Link>
+                        <button onClick={() => dispatch({ type: "ADD", payload: element })}>
+                            add to cart
+                        </button>
                         <hr></hr>
                     </div>
 

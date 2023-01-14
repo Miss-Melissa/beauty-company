@@ -1,30 +1,31 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Axios from 'axios';
 
 function Logout() {
+
+    const navigate = useNavigate();
 
 
     const logOut = async (e) => {
         e.preventDefault();
 
-        Axios.get('http://localhost:8030/logout',
-            {
-                headers: { "Content-Type": "application/json" },
-            })
+
+        Axios.get('http://localhost:8030/logout')
+
             .then((response) => {
                 console.log(response)
                 localStorage.removeItem('user-info');
+                window.location.reload(false);
+                navigate('/');
             })
             .catch((err) => {
                 console.log(err.response);
             });
     }
 
-
     return (
-        <div>
-            <button onClick={logOut}>LogOut</button>
-        </div>
+        <button onClick={logOut}>Log out</button>
     )
 }
 

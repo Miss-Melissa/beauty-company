@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react'
 import Axios from 'axios'
 import { useParams } from 'react-router-dom'
@@ -22,7 +23,6 @@ function UpdateProduct() {
                 const productprice = res.data.data[0].productprice;
                 const productdesc = res.data.data[0].productdesc;
                 const image = res.data.data[0].image;
-
                 console.log(productname);
                 console.log(productprice);
                 console.log(productdesc);
@@ -66,6 +66,7 @@ function UpdateProduct() {
         })
             .then((res) => {
                 console.log(res);
+                window.location.reload(false);
             })
             .catch((err) => {
                 console.log(err);
