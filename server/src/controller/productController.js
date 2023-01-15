@@ -1,8 +1,8 @@
 // --------- display list of products ---------
-const showProducts = async (req, res, next) => {
+const showProducts = async (req, res) => {
     try {
         var db = req.db;
-        let results = db.query("Select * from products", function (error, rows) {
+        db.query("Select * from products", function (error, rows) {
             if (error) {
                 console.log("Error");
             } else {
@@ -22,10 +22,10 @@ const showProducts = async (req, res, next) => {
 
 
 // --------- display single product ---------
-const showProduct = async (req, res, next) => {
+const showProduct = async (req, res) => {
     var db = req.db;
     var id = req.params.id;
-    let results = await db.query("select * from products where id = ?", id, function (err, rows) {
+    await db.query("select * from products where id = ?", id, function (err, rows) {
         if (err) {
             throw err
         }
@@ -39,7 +39,7 @@ const showProduct = async (req, res, next) => {
 }
 
 // --------- creating a product ---------
-const createProduct = async (req, res, next) => {
+const createProduct = async (req, res) => {
     try {
         var db = req.db;
         var id = Math.floor(Math.random() * 9000000) + 100000000;
@@ -51,7 +51,7 @@ const createProduct = async (req, res, next) => {
             image: req.file.filename
         };
         console.log(data)
-        let results = await db.query(
+        await db.query(
 
             "Insert into products set ?",
             [data],
@@ -75,11 +75,11 @@ const createProduct = async (req, res, next) => {
 };
 
 // --------- Delete Product ---------
-const deleteProduct = async (req, res, next) => {
+const deleteProduct = async (req, res) => {
     try {
         var db = req.db;
         var id = req.params.id;
-        let results = db.query("Delete from products where id = ?", id, function (err, rows) {
+        db.query("Delete from products where id = ?", id, function (err, rows) {
             if (err) throw err
             else {
                 res.send({
@@ -97,7 +97,7 @@ const deleteProduct = async (req, res, next) => {
 
 
 // --------- Update Product ---------
-const updateProdcut = async (req, res, next) => {
+const updateProdcut = async (req, res) => {
     try {
         var db = req.db;
         var id = req.params.id;
@@ -106,10 +106,17 @@ const updateProdcut = async (req, res, next) => {
             productname: req.body.productname,
             productprice: req.body.productprice,
             productdesc: req.body.productdesc,
-            image: req.file.filename,
-        };
-        let results = db.query("update products set ? where id = ?", [data, id], function (err, rows) {
-            if (err) throw err
+        }
+
+        if (req.file) { // updating image is optional
+            data.image = req.file.filename
+        }
+
+
+        db.query("update products set ? where id = ?", [data, id], function (err, rows) {
+            if (err) {
+                console.log(err)
+            }
             else {
                 res.send({
                     message: 'Successfully updated!'

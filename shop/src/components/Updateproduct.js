@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react'
 import Axios from 'axios'
 import { useParams } from 'react-router-dom'
@@ -8,9 +7,8 @@ function UpdateProduct() {
     const [productname, setProductName] = useState('');
     const [productprice, setProductPrice] = useState('');
     const [productdesc, setProductDesc] = useState('');
-    const [image, setImage] = useState(null);
     const [file, setFile] = useState(null);
-
+    const [image, setImage] = useState(null);
 
 
     const { id } = useParams();
@@ -23,16 +21,12 @@ function UpdateProduct() {
                 const productprice = res.data.data[0].productprice;
                 const productdesc = res.data.data[0].productdesc;
                 const image = res.data.data[0].image;
-                console.log(productname);
-                console.log(productprice);
-                console.log(productdesc);
-                console.log(image);
                 setProductName(productname);
                 setProductPrice(productprice);
                 setProductDesc(productdesc);
                 setImage(image);
             }).catch(error => console.log(error));
-    }, []);
+    }, [id]);
 
     const setPrice = (e) => {
         setProductPrice(e.target.value)
@@ -59,6 +53,7 @@ function UpdateProduct() {
         formTitle.append('productname', productname);
         formTitle.append('productprice', productprice);
         formTitle.append('productdesc', productdesc);
+
         formTitle.append('image', file);
 
         Axios.put(`http://localhost:8030/updateProduct/${id}`, formTitle, {
@@ -66,7 +61,7 @@ function UpdateProduct() {
         })
             .then((res) => {
                 console.log(res);
-                window.location.reload(false);
+                // window.location.reload(false);
             })
             .catch((err) => {
                 console.log(err);
@@ -75,10 +70,7 @@ function UpdateProduct() {
 
 
 
-
-
     return (
-
         <div>
             <form onSubmit={updateProduct}>
                 <input type="text" name="productname" value={productname || ''} onChange={setName} />

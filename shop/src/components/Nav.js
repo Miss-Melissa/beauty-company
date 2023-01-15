@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { Link } from 'react-router-dom';
 import Axios from 'axios';
-import Logout from '../pages/Logout';
-import { Cartcontext } from '../context/Context';
+import Logout from './Logout';
+import { Cartcontext } from '../context/Cart';
 
 
 
@@ -22,7 +22,6 @@ function Nav() {
         Axios.get('http://localhost:8030/loginStatus', {
         })
             .then((response) => {
-                console.log(response)
                 if (response.data.loggedIn === true) {
                     setRole(response.data.user[0].role)
                     setStatus(response.data.user[0].username)

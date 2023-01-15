@@ -79,16 +79,16 @@ function Admin() {
         <div>
             <form onSubmit={setProduct}>
                 <label>productname:</label>
-                <input type="text" name="productname" onChange={setName} />
+                <input type="text" name="productname" onChange={setName} required />
                 <br></br>
                 <label>Productprice:</label>
-                <input type="number" name="productprice" onChange={setPrice} />
+                <input type="number" name="productprice" onChange={setPrice} required />
                 <br></br>
                 <label>Productdesc:</label>
-                <input type="text" name="productdesc" onChange={setDesc} />
+                <input type="text" name="productdesc" onChange={setDesc} required />
                 <br></br>
                 <label>Productimage:</label>
-                <input type="file" name="image" onChange={setImage} />
+                <input type="file" name="image" onChange={setImage} required />
                 <br></br>
                 <input type="submit" value="Add" />
             </form>
