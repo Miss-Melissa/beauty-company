@@ -9,6 +9,7 @@ import { Cartcontext } from '../context/Context';
 function Product() {
 
 
+
     const [product, setProduct] = useState([]);
     const params = useParams();
 

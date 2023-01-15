@@ -18,6 +18,7 @@ export const Context = (props) => {
                     return [...state, action.payload];
                 }
             case 'INCREASE':
+
                 const increaceState = state.map((item) => {
                     if (item.id === action.payload.id) {
                         return { ...item, quantity: item.quantity + 1 };
@@ -40,6 +41,10 @@ export const Context = (props) => {
                     (item) => item.id !== action.payload.id
                 );
                 return removeState;
+            case 'CLEAR':
+                const clearState = [...state];
+                clearState.splice(action.id);
+                return clearState;
             default:
                 return state;
         }

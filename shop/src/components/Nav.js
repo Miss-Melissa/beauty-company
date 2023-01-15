@@ -1,14 +1,20 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { Link } from 'react-router-dom';
 import Axios from 'axios';
 import Logout from '../pages/Logout';
-import { useCart } from '../context/Context';
+import { Cartcontext } from '../context/Context';
+
+
 
 function Nav() {
     const [role, setRole] = useState('');
     const [status, setStatus] = useState('')
-    const items = useCart();
-    console.log(items)
+    const Globalstate = useContext(Cartcontext);
+    const state = Globalstate.state;
+    const total = state.reduce((total, item) => {
+        return (total + item.quantity)
+    }, 0)
+
 
     const auth = localStorage.getItem('user-info');
 
@@ -36,7 +42,7 @@ function Nav() {
             {role === 'admin' && <Link to="/admin">Admin</Link>}
             {auth ? <Logout /> : <Link to="/login"><button>Login</button></Link>}
             {status ? "Welcome: " + status : status}
-            <Link to="/cart">Cart({items.length})</Link>
+            <Link to="/cart">Cart({total})</Link>
 
         </div>
     )

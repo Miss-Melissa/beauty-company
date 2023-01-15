@@ -1,13 +1,21 @@
 import React, { useContext } from 'react'
-import { Cartcontext } from '../context/Context'
+import { Cartcontext, useCart } from '../context/Context'
+
 
 const Cart = () => {
+
+    const items = useCart();
+
     const Globalstate = useContext(Cartcontext);
     const state = Globalstate.state;
     const dispatch = Globalstate.dispatch;
     const total = state.reduce((total, item) => {
         return (total + item.productprice * item.quantity)
     }, 0)
+
+    if (items.length === 0) {
+        return <p className="cart-empty">Cart is empty</p>;
+    }
     return <div>
         {state.map((item, id) => {
             return (
@@ -35,15 +43,19 @@ const Cart = () => {
                     <h2 onClick={() => dispatch({ type: "REMOVE", payload: item })}>
                         x
                     </h2>
+                    <button onClick={() => dispatch({ type: "CLEAR", payload: item })}>CLEAR</button>
                 </div>
             );
+
         })}
         <br></br>
-        {state.length > 0 && (
-            <div className="total">
-                <h2>{total}</h2>
-            </div>
-        )}
+        <div>
+            {state.length > 0 && (
+                <div className="total">
+                    <h2>{total}</h2>
+                </div>
+            )}
+        </div>
     </div>
 }
 
