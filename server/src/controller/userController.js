@@ -8,6 +8,7 @@ const registerUser = (req, res) => {
         var db = req.db;
         var id = Math.floor(Math.random() * 9000000) + 100000000;
         const username = req.body.username
+        const email = req.body.email
         const password = req.body.password;
 
         bcrypt.hash(password, saltRounds, (err, hash) => {
@@ -15,8 +16,8 @@ const registerUser = (req, res) => {
                 console.log(err)
             }
             db.query(
-                "Insert into users (username, password) values (?,?)",
-                [username, hash],
+                "Insert into users (username, password, email) values (?, ?, ?)",
+                [username, hash, email],
                 function (err) {
                     if (err) {
                         console.log(err)

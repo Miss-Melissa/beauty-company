@@ -6,7 +6,9 @@ import Axios from 'axios'
 
 function Register() {
     const [username, setUserName] = useState('');
+    const [mail, setMail] = useState('');
     const [password, setPassword] = useState('');
+
 
     const navigate = useNavigate();
 
@@ -19,6 +21,9 @@ function Register() {
         setPassword(e.target.value)
     }
 
+    const setEmail = (e) => {
+        setMail(e.target.value)
+    }
 
     // ---- function register ----
     const register = async (e) => {
@@ -27,6 +32,7 @@ function Register() {
         let formData = new FormData();
 
         formData.append('username', username);
+        formData.append('email', mail);
         formData.append('password', password);
 
 
@@ -34,7 +40,7 @@ function Register() {
             headers: { "Content-Type": "application/json" },
         })
             .then((res) => {
-                console.log(res.data);
+                console.log(res);
                 navigate('/login');
                 localStorage.setItem('user-info', JSON.stringify(res.data));
                 window.location.reload(false);
@@ -49,6 +55,9 @@ function Register() {
         <div>
             <h1>Register</h1>
             <form onSubmit={register}>
+                <label>Email:</label>
+                <input type="email" name="email" onChange={setEmail} required />
+                <br></br>
                 <label>Username:</label>
                 <input type="text" name="username" onChange={setUser} required />
                 <br></br>
