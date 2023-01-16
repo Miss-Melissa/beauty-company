@@ -10,7 +10,6 @@ function ProductList(props) {
 
     const Globalstate = useContext(Cartcontext);
     const dispatch = Globalstate.dispatch;
-    console.log(Globalstate);
 
     return (
         <div>

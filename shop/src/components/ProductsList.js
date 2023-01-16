@@ -6,7 +6,6 @@ function ProductsList(props) {
 
     const products = props.products;
     const title = props.title;
-    console.log(props, products)
 
     return (
         <div>

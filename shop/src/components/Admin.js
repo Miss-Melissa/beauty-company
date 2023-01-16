@@ -50,14 +50,14 @@ function Admin() {
     const setProduct = async (e) => {
         e.preventDefault();
 
-        let formTitle = new FormData();
+        let formData = new FormData();
 
-        formTitle.append('productname', productName);
-        formTitle.append('productprice', productPrice);
-        formTitle.append('productdesc', productDesc);
-        formTitle.append('image', productImage);
+        formData.append('productname', productName);
+        formData.append('productprice', productPrice);
+        formData.append('productdesc', productDesc);
+        formData.append('image', productImage);
 
-        Axios.post("http://localhost:8030/createProduct", formTitle, {
+        Axios.post("http://localhost:8030/createProduct", formData, {
             headers: { "Content-Type": "multipart/form-data" },
         })
             .then((res) => {

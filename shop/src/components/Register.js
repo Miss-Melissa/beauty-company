@@ -24,13 +24,13 @@ function Register() {
     const register = async (e) => {
         e.preventDefault();
 
-        let formTitle = new FormData();
+        let formData = new FormData();
 
-        formTitle.append('username', username);
-        formTitle.append('password', password);
+        formData.append('username', username);
+        formData.append('password', password);
 
 
-        Axios.post('http://localhost:8030/registerUser', formTitle, {
+        Axios.post('http://localhost:8030/registerUser', formData, {
             headers: { "Content-Type": "application/json" },
         })
             .then((res) => {
