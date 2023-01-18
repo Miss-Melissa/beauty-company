@@ -54,14 +54,14 @@ export const Context = (props) => {
 
     const [state, dispatch] = useReducer(reducer, [], () => {
 
-        const dataFromLocal = localStorage.getItem("state");
+        const dataFromLocal = localStorage.getItem("product");
 
         return dataFromLocal ? JSON.parse(dataFromLocal) : [];
 
     });
 
     useEffect(() => {
-        localStorage.setItem("state", JSON.stringify(state));
+        localStorage.setItem("product", JSON.stringify(state));
 
     }, [state]);
 

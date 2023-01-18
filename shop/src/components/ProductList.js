@@ -18,7 +18,7 @@ function ProductList(props) {
                 ? product.data.map((element, id) => {
                     element.quantity = 1;
                     return <div key={id}>
-                        <img src={`http://localhost:8030/src/image/${element.image}`} alt={element.productname} height="300px" width="300px" />
+                        <img src={`http://localhost:8030/src/image/${element.image}`} alt={element.productname} height="200px" width="200px" />
                         <h2>{element.productname}</h2>
                         <p>{element.productprice} kr</p>
                         <p>{element.productdesc}</p>

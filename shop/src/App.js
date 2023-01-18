@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './css/styles.css'
 import {
   BrowserRouter,
   Routes,
@@ -16,8 +16,11 @@ import Register from './components/Register';
 import Login from './components/Login';
 import Logout from './components/Logout';
 import ShoppingCart from './pages/ShoppingCart';
-import Checkout from './pages/Checkout';
 import PageNotFound from './components/PageNotFound';
+import CheckoutSuccess from './pages/CheckoutSuccess';
+import Contact from './pages/Contact';
+import AboutUs from './pages/AboutUs';
+
 
 function App() {
   return (
@@ -34,8 +37,10 @@ function App() {
             <Route path="/register" element={<Register />}></Route>
             <Route path="/login" element={<Login />}></Route>
             <Route path="/logout" element={<Logout />}></Route>
+            <Route path="/contact" element={<Contact />}></Route>
+            <Route path="/aboutus" element={<AboutUs />}></Route>
             <Route path="/cart" element={<ShoppingCart />} ></Route>
-            <Route path="/checkout" element={<Checkout />} ></Route>
+            <Route path="/checkout-success" element={<CheckoutSuccess />} ></Route>
             <Route path="*" element={<PageNotFound />}></Route>
           </Routes>
         </Context>
@@ -44,5 +49,6 @@ function App() {
     </div >
   )
 }
+
 
 export default App

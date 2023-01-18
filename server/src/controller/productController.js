@@ -97,7 +97,7 @@ const deleteProduct = async (req, res) => {
 
 
 // --------- Update Product ---------
-const updateProdcut = async (req, res) => {
+const updateProdcut = (req, res) => {
     try {
         var db = req.db;
         var id = req.params.id;
@@ -134,4 +134,4 @@ const updateProdcut = async (req, res) => {
 
 
 
-module.exports = { showProducts, showProduct, createProduct, deleteProduct, updateProdcut, }
+module.exports = { showProducts, showProduct, createProduct, deleteProduct, updateProdcut }

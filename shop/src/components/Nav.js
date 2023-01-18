@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Axios from 'axios';
 import Logout from './Logout';
 import { Cartcontext } from '../context/Cart';
-
+import { FaShoppingBag, FaDoorOpen, FaUser } from 'react-icons/fa';
 
 
 function Nav() {
@@ -35,14 +35,26 @@ function Nav() {
     }, []);
 
     return (
-        <div>
-            <Link to="/">Home</Link> |
-            <Link to="/products">Products</Link> |
-            {role === 'admin' && <Link to="/admin">Admin</Link>}
-            {auth ? <Logout /> : <Link to="/login"><button>Login</button></Link>}
-            {status ? "Welcome: " + status : status}
-            <Link to="/cart">Cart({total})</Link>
+        <div className="header">
+            <nav>
+                {auth ? <Logout /> : <Link className='material-icons' to="/login"><FaUser /></Link>}
 
+                <Link to="/" className="logoOne">Beauty<span className='logoTwo'>Company</span></Link>
+
+                <ul>
+                    <li> <Link className='li-to' to="/products">Products</Link></li>
+                    <li> <Link className='li-to' to="/aboutus">About Us</Link></li>
+                    <li> {role === 'admin' && <Link className='li-to' to="/admin">Admin</Link>}</li>
+                </ul>
+
+                <span className='status'> {status ? "Welcome: " + status : status}</span>
+                <span className="cart">
+                    <span className="count">{total}</span>
+                    <i className="material-icons"><Link to="/cart" className='link'><FaShoppingBag /></Link></i>
+                </span>
+
+
+            </nav>
         </div>
     )
 }

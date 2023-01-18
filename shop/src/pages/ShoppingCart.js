@@ -1,7 +1,7 @@
 import React from 'react';
 import CartList from '../components/CartList';
-import { Link } from 'react-router-dom'
 import { useCart } from '../context/Cart';
+import PayBtn from '../components/PayBtn';
 
 
 const ShoppingCart = () => {
@@ -13,7 +13,7 @@ const ShoppingCart = () => {
     }
     return <div>
         <CartList items={items} cart="Cart" />
-        <Link to="/checkout"><button>Checkout</button></Link>
+        <PayBtn items={items} />
     </div>
 }
 

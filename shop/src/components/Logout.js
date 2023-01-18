@@ -1,5 +1,6 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
+import { FaDoorClosed } from 'react-icons/fa';
 import Axios from 'axios';
 
 function Logout() {
@@ -25,7 +26,7 @@ function Logout() {
     }
 
     return (
-        <button onClick={logOut}>Log out</button>
+        <Link className="material-icons" to onClick={logOut}><FaDoorClosed /></Link>
     )
 }
 
