@@ -62,7 +62,7 @@ function Nav() {
                 <div className="navbar-links">
                     <ul>
                         <li> <Link to="/products">Products</Link></li>
-                        <li> <Link to="/aboutus">About us</Link></li>
+                        <li> <Link to="/aboutus">About</Link></li>
                         <li> <Link to="/contact">Contact</Link></li>
                         <li> {role === 'admin' && <Link to="/admin">Admin</Link>}</li>
                         <li>{auth ? <Logout /> : <Link to="/login">Login</Link>}</li>
