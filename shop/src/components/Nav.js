@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Axios from 'axios';
 import Logout from './Logout';
 import { Cartcontext } from '../context/Cart';
-import { FaShoppingBag, FaDoorOpen, FaUser } from 'react-icons/fa';
+import { FaShoppingBag } from 'react-icons/fa';
 
 
 function Nav() {
@@ -35,27 +35,43 @@ function Nav() {
     }, []);
 
     return (
-        <div className="header">
-            <nav>
-                {auth ? <Logout /> : <Link className='material-icons' to="/login"><FaUser /></Link>}
-
-                <Link to="/" className="logoOne">Beauty<span className='logoTwo'>Company</span></Link>
-
-                <ul>
-                    <li> <Link className='li-to' to="/products">Products</Link></li>
-                    <li> <Link className='li-to' to="/aboutus">About Us</Link></li>
-                    <li> {role === 'admin' && <Link className='li-to' to="/admin">Admin</Link>}</li>
-                </ul>
-
+        <nav>
+            <div className='navbar-top'>
                 <span className='status'> {status ? "Welcome: " + status : status}</span>
+
                 <span className="cart">
                     <span className="count">{total}</span>
                     <i className="material-icons"><Link to="/cart" className='link'><FaShoppingBag /></Link></i>
                 </span>
+            </div>
+            <div className="navbar">
+                <Link to="/" className="logoOne">Beauty<span className='logoTwo'>Company</span></Link>
+                <input id="menu__toggle" type="checkbox" />
+                <label className="toggle-button" htmlFor="menu__toggle">
+                    <span></span>
+                </label>
 
+                <ul className="navbar-links-box">
+                    <li>{auth ? <Logout /> : <Link className="menu__item" to="/login">Login</Link>}</li>
+                    <li> <Link className="menu__item" to="/products">Products</Link></li>
+                    <li> <Link className="menu__item" to="/aboutus">About us</Link></li>
+                    <li> <Link className="menu__item" to="/contact">Contact</Link></li>
+                    <li> {role === 'admin' && <Link className="menu__item" to="/admin">Admin</Link>}</li>
+                </ul>
 
-            </nav>
-        </div>
+                <div className="navbar-links">
+                    <ul>
+                        <li> <Link to="/products">Products</Link></li>
+                        <li> <Link to="/aboutus">About us</Link></li>
+                        <li> <Link to="/contact">Contact</Link></li>
+                        <li> {role === 'admin' && <Link to="/admin">Admin</Link>}</li>
+                        <li>{auth ? <Logout /> : <Link to="/login">Login</Link>}</li>
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+
     )
 }
 
