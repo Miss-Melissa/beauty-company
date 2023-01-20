@@ -12,9 +12,9 @@ body {
 }
 
 nav {
-  background-color: pink;
+  background-color: #F2C5E0;
   padding-bottom: 3%;
-  border: 1px solid black;
+  border: 2px solid black;
 }
 nav .navbar-top {
   display: flex;
@@ -71,11 +71,12 @@ nav .navbar .logoOne {
   font-size: 25px;
   text-decoration: none;
   padding-left: 5%;
+  font-weight: 400;
 }
 nav .navbar .logoOne .logoTwo {
   font-size: 25px;
   color: black;
-  font-weight: bold;
+  font-weight: 600;
 }
 nav .navbar-links {
   height: 100%;
@@ -93,11 +94,12 @@ nav .navbar-links li a {
   margin: 0;
   padding: 8px;
   border-radius: 2px;
+  font-weight: 300;
   text-transform: uppercase;
 }
 nav .navbar-links li a:hover {
   background-color: white;
-  color: pink;
+  color: #F2C5E0;
   border-radius: 2px;
 }
 
@@ -176,9 +178,8 @@ nav .navbar-links li a:hover {
     height: 100%;
     margin: 0;
     padding: 80px 0;
-    list-style: none;
-    background-color: pink;
-    border: 1px solid black;
+    background-color: #F2C5E0;
+    border: 2px solid black;
     box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
     transition-duration: 0s;
     overflow: auto;
@@ -189,6 +190,7 @@ nav .navbar-links li a:hover {
     color: white;
     font-size: 20px;
     text-decoration: none;
+    font-weight: 300;
     text-transform: uppercase;
     transition-duration: 0.25s;
   }
@@ -196,6 +198,107 @@ nav .navbar-links li a:hover {
     background-color: white;
     color: black;
   }
+}
+.footer {
+  height: auto;
+  padding: 50px 100px;
+  flex-wrap: wrap;
+  background: #F2C5E0;
+  border: 2px solid black;
+}
+.footer .footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+.footer .footer-container .sec.aboutus {
+  width: 40%;
+  padding-bottom: 2%;
+  border-bottom: 1px solid black;
+}
+.footer .footer-container .sec.aboutus h2 {
+  position: relative;
+  color: white;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.footer .footer-container .aboutus h2::before {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 50px;
+  height: 2px;
+  background: black;
+}
+.footer .footer-container .sec.aboutus a {
+  width: 31px;
+  height: 37px;
+  background: black;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1%;
+  color: white;
+}
+.footer .footer-container .sec.aboutus a:hover {
+  color: #F2C5E0;
+}
+.footer .footer-container .quickLinks h2 {
+  color: white;
+  position: relative !important;
+  color: white;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.footer .footer-container .quickLinks h2::before {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 50px;
+  height: 2px;
+  background: black;
+}
+.footer .sec.quickLinks {
+  width: 20%;
+  padding-bottom: 2%;
+}
+.footer .sec.quickLinks a {
+  color: white;
+  display: block;
+  padding: 0 0 10px;
+}
+.footer .sec.quickLinks a:hover {
+  color: black;
+}
+
+.footer-container .sec.contact {
+  width: calc(35% - 60px);
+}
+
+.footer-container .sec.contact h2 {
+  color: white;
+  position: relative !important;
+  color: white;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.footer-container .sec.contact h2::before {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 50px;
+  height: 2px;
+  background: black;
+}
+
+.spanOne {
+  color: white;
+  font-weight: 400;
 }
 
 /*# sourceMappingURL=styles.css.map */

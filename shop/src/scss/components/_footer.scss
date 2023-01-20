@@ -1,0 +1,112 @@
+.footer {
+  height: auto;
+  padding: 50px 100px;
+  flex-wrap: wrap;
+  background: $Pink;
+  border: 2px solid black;
+
+  .footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+
+  .footer-container .sec.aboutus {
+    width: 40%;
+    padding-bottom: 2%;
+    border-bottom: 1px solid black;
+  }
+
+  .footer-container .sec.aboutus h2 {
+    position: relative;
+    color: white;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+
+  .footer-container .aboutus h2::before {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: black;
+  }
+
+  .footer-container .sec.aboutus a {
+    width: 31px;
+    height: 37px;
+    background: black;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1%;
+    color: white;
+  }
+
+  .footer-container .sec.aboutus a:hover {
+    color: $Pink;
+  }
+
+  .footer-container .quickLinks h2 {
+    color: $White;
+    position: relative !important;
+    color: white;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+
+  .footer-container .quickLinks h2::before {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: black;
+  }
+
+  .sec.quickLinks {
+    width: 20%;
+    padding-bottom: 2%;
+  }
+
+  .sec.quickLinks a {
+    color: white;
+    display: block;
+    padding: 0 0 10px;
+  }
+
+  .sec.quickLinks a:hover {
+    color: black;
+  }
+}
+
+.footer-container .sec.contact {
+  width: calc(35% - 60px);
+}
+
+.footer-container .sec.contact h2 {
+  color: $White;
+  position: relative !important;
+  color: white;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.footer-container .sec.contact h2::before {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 50px;
+  height: 2px;
+  background: black;
+}
+
+.spanOne{
+  color: $White;
+  font-weight: 400;
+}

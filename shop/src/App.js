@@ -20,6 +20,7 @@ import PageNotFound from './components/PageNotFound';
 import CheckoutSuccess from './pages/CheckoutSuccess';
 import Contact from './pages/Contact';
 import AboutUs from './pages/AboutUs';
+import Footer from './components/Footer';
 
 
 function App() {
@@ -43,6 +44,7 @@ function App() {
             <Route path="/checkout-success" element={<CheckoutSuccess />} ></Route>
             <Route path="*" element={<PageNotFound />}></Route>
           </Routes>
+          <Footer />
         </Context>
       </BrowserRouter>
 
