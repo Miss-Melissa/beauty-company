@@ -1,6 +1,6 @@
 const Stripe = require('stripe')('sk_test_51MQxSkLDGq7nBbuRglhLZLK0NWUGoFpzhYkBXD8PjnskTko9u9hp4IC7pAbAkuFsAeFkTRdGjhuQt0MIQO3l6cCm00D6YIuUIg')
 
-
+// --------- Payment stripe ---------
 const orderProduct = async (req, res) => {
     try {
 

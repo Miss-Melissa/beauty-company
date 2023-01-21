@@ -2,7 +2,7 @@ const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
 
-
+// --------- register user ---------
 const registerUser = (req, res) => {
     try {
         let db = req.db;
@@ -40,14 +40,14 @@ const registerUser = (req, res) => {
 };
 
 
-
+// --------- user login ---------
 const loginUser = async (req, res) => {
     try {
         let db = req.db;
         const username = req.body.username;
         const password = req.body.password;
 
-        let results = await db.query(
+        await db.query(
             "select * from users where username = ?",
             username,
             function (err, result) {
@@ -78,6 +78,7 @@ const loginUser = async (req, res) => {
 };
 
 
+// --------- user status when login ---------
 const loginStatus = (req, res) => {
     if (req.session.user) {
         res.send({ loggedIn: true, user: req.session.user })
@@ -86,6 +87,9 @@ const loginStatus = (req, res) => {
     }
 }
 
+
+
+// --------- logout user ---------
 const logout = (req, res) => {
     if (req.session.user) {
         req.session.destroy(err => {

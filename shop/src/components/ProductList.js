@@ -10,6 +10,10 @@ function ProductList(props) {
 
     const Globalstate = useContext(Cartcontext);
     const dispatch = Globalstate.dispatch;
+    const state = Globalstate.state;
+    const total = state.reduce((total, item) => {
+        return (total + item.quantity)
+    }, 0)
 
     return (
         <div>
@@ -25,6 +29,23 @@ function ProductList(props) {
                         <div>
                             <button onClick={() => dispatch({ type: "ADD", payload: element })}>
                                 add to cart
+                            </button>
+                        </div>
+                        <div>
+                            <button
+                                onClick={() => dispatch({ type: "INCREASE", payload: element })}>
+                                +
+                            </button>
+                            <p>{total}</p>
+                            <button
+                                onClick={() => {
+                                    if (total > 1) {
+                                        dispatch({ type: "DECREASE", payload: element });
+                                    } else {
+                                        dispatch({ type: "REMOVE", payload: element });
+                                    }
+                                }}>
+                                -
                             </button>
                         </div>
                         <br></br>
