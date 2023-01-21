@@ -1,7 +1,7 @@
 // --------- display list of products ---------
 const showProducts = async (req, res) => {
     try {
-        var db = req.db;
+        let db = req.db;
         db.query("Select * from products", function (error, rows) {
             if (error) {
                 console.log("Error");
@@ -23,8 +23,8 @@ const showProducts = async (req, res) => {
 
 // --------- display single product ---------
 const showProduct = async (req, res) => {
-    var db = req.db;
-    var id = req.params.id;
+    let db = req.db;
+    let id = req.params.id;
     await db.query("select * from products where id = ?", id, function (err, rows) {
         if (err) {
             throw err
@@ -41,9 +41,9 @@ const showProduct = async (req, res) => {
 // --------- creating a product ---------
 const createProduct = async (req, res) => {
     try {
-        var db = req.db;
-        var id = Math.floor(Math.random() * 9000000) + 100000000;
-        var data = {
+        let db = req.db;
+        let id = Math.floor(Math.random() * 9000000) + 100000000;
+        let data = {
             id: id,
             productname: req.body.productname,
             productprice: req.body.productprice,
@@ -77,8 +77,8 @@ const createProduct = async (req, res) => {
 // --------- Delete Product ---------
 const deleteProduct = async (req, res) => {
     try {
-        var db = req.db;
-        var id = req.params.id;
+        let db = req.db;
+        let id = req.params.id;
         db.query("Delete from products where id = ?", id, function (err, rows) {
             if (err) throw err
             else {
@@ -99,9 +99,9 @@ const deleteProduct = async (req, res) => {
 // --------- Update Product ---------
 const updateProdcut = (req, res) => {
     try {
-        var db = req.db;
-        var id = req.params.id;
-        var data = {
+        let db = req.db;
+        let id = req.params.id;
+        let data = {
             id: id,
             productname: req.body.productname,
             productprice: req.body.productprice,
@@ -131,6 +131,9 @@ const updateProdcut = (req, res) => {
         })
     }
 }
+
+
+
 
 
 

@@ -213,7 +213,7 @@ nav .navbar-links li a:hover {
   flex-direction: row;
 }
 .footer .footer-container .sec.aboutus {
-  width: 40%;
+  width: 20%;
   padding-bottom: 2%;
   border-bottom: 1px solid black;
 }
@@ -275,7 +275,7 @@ nav .navbar-links li a:hover {
 }
 
 .footer-container .sec.contact {
-  width: calc(35% - 60px);
+  width: calc(40% - 60px);
 }
 
 .footer-container .sec.contact h2 {
@@ -299,6 +299,60 @@ nav .navbar-links li a:hover {
 .spanOne {
   color: white;
   font-weight: 400;
+}
+
+.spanTwo {
+  color: white;
+}
+
+.footer-container .sec.contact h2::before {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 50px;
+  height: 2px;
+  background: black;
+}
+
+.footer-container .sec.contact p {
+  color: white;
+}
+
+.footer-container .sec.contact span {
+  color: black;
+}
+
+span.spanTwo {
+  color: white !important;
+}
+
+@media (max-width: 991px) {
+  .footer {
+    padding: 40px;
+    padding-bottom: 1%;
+  }
+  .footer .footer-container {
+    flex-direction: column !important;
+  }
+  .footer .footer-container .sec {
+    margin-right: 0;
+    margin-bottom: 40px;
+  }
+  .footer .footer-container .sec.aboutus {
+    width: 100% !important;
+  }
+  .footer .footer-container .sec.quickLinks {
+    width: 100% !important;
+    padding-bottom: 0%;
+    border-bottom: 1px solid black;
+  }
+  .footer .footer-container .sec.contact {
+    width: 100% !important;
+  }
+  .footer .footer-container .sec.contact h2 {
+    margin-top: 0%;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */

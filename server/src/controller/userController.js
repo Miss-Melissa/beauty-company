@@ -5,8 +5,8 @@ const saltRounds = 10;
 
 const registerUser = (req, res) => {
     try {
-        var db = req.db;
-        var id = Math.floor(Math.random() * 9000000) + 100000000;
+        let db = req.db;
+        let id = Math.floor(Math.random() * 9000000) + 100000000;
         const username = req.body.username
         const email = req.body.email
         const password = req.body.password;
@@ -43,7 +43,7 @@ const registerUser = (req, res) => {
 
 const loginUser = async (req, res) => {
     try {
-        var db = req.db;
+        let db = req.db;
         const username = req.body.username;
         const password = req.body.password;
 

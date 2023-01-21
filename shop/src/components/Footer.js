@@ -33,7 +33,7 @@ function Footer() {
                 <div className='sec contact'>
                     <h2>Contact us</h2>
 
-                    <p>
+                    <p >
                         <FaMapMarked /> <span>Stockholm</span>
                     </p>
                     <p>

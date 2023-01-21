@@ -13,7 +13,7 @@
   }
 
   .footer-container .sec.aboutus {
-    width: 40%;
+    width: 20%;
     padding-bottom: 2%;
     border-bottom: 1px solid black;
   }
@@ -85,7 +85,7 @@
 }
 
 .footer-container .sec.contact {
-  width: calc(35% - 60px);
+  width: calc(40% - 60px);
 }
 
 .footer-container .sec.contact h2 {
@@ -106,7 +106,64 @@
   background: black;
 }
 
-.spanOne{
+.spanOne {
   color: $White;
   font-weight: 400;
+}
+.spanTwo {
+  color: $White;
+}
+
+.footer-container .sec.contact h2::before {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 50px;
+  height: 2px;
+  background: black;
+}
+
+.footer-container .sec.contact p {
+  color: white;
+}
+
+.footer-container .sec.contact span {
+  color: black;
+}
+
+span.spanTwo {
+  color: white !important;
+}
+
+@media (max-width: 991px) {
+  .footer {
+    padding: 40px;
+    padding-bottom: 1%;
+    .footer-container {
+      flex-direction: column !important;
+    }
+ .footer-container .sec {
+      margin-right: 0;
+      margin-bottom: 40px;
+    }
+
+    .footer-container .sec.aboutus {
+      width: 100%!important;
+  }
+
+  .footer-container .sec.quickLinks {
+    width: 100%!important;
+    padding-bottom: 0%;
+    border-bottom: 1px solid black;
+}
+
+.footer-container .sec.contact {
+  width: 100%!important;
+}
+
+.footer-container .sec.contact h2 {
+  margin-top: 0%;
+}
+  }
 }
