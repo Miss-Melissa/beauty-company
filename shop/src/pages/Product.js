@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from 'react-router-dom'
 import ProductList from "../components/ProductList";
+import { Cartcontext } from '../context/Cart';
 
 
 function Product() {
 
+
     const [product, setProduct] = useState([]);
     const params = useParams();
+
+
 
 
 
@@ -15,7 +19,7 @@ function Product() {
             try {
                 const response = await fetch('http://localhost:8030/showProduct/' + params.id);
                 const data = await response.json();
-                console.log(data.message);
+                console.log(data);
                 setProduct(data);
             } catch (error) {
                 console.log(error);
@@ -28,7 +32,7 @@ function Product() {
 
     return (
         <div>
-            <ProductList product={product} title="Product" />
+            <ProductList product={product} items={Cartcontext} title="Product" />
         </div>
 
     )

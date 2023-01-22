@@ -8,6 +8,7 @@ const ShoppingCart = () => {
 
     const items = useCart();
 
+
     if (items.length === 0) {
         return <p>Cart is empty</p>;
     }

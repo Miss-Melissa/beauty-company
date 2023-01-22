@@ -5,6 +5,7 @@ import { Cartcontext } from '../context/Cart'
 function CartList(props) {
 
     const items = props.items;
+    console.log(items)
 
     const Globalstate = useContext(Cartcontext);
     const state = Globalstate.state;
@@ -19,7 +20,7 @@ function CartList(props) {
                 return (
                     <div key={id}>
                         <img src={`http://localhost:8030/src/image/${item.image}`} alt={item.productname} height="50px" width="50px" />
-                        <p>{item.productname}</p>
+                        <p key={item.id}>{item.productname}</p>
                         <p>{item.quantity * item.productprice}</p>
                         <div>
                             <button

@@ -1,12 +1,19 @@
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
-import { Cartcontext } from '../context/Cart';
 
 function ProductList(props) {
 
 
     const product = props.product;
     const title = props.title
+    const Cartcontext = props.items
+
+
+
+
+
+
+
 
     const Globalstate = useContext(Cartcontext);
     const dispatch = Globalstate.dispatch;
@@ -14,6 +21,8 @@ function ProductList(props) {
     const total = state.reduce((total, item) => {
         return (total + item.quantity)
     }, 0)
+    console.log(total)
+
 
     return (
         <div>
@@ -36,7 +45,8 @@ function ProductList(props) {
                                 onClick={() => dispatch({ type: "INCREASE", payload: element })}>
                                 +
                             </button>
-                            <p>{total}</p>
+
+                            {total}
                             <button
                                 onClick={() => {
                                     if (total > 1) {
