@@ -1,10 +1,10 @@
 .contact {
     padding: 40px 3%;
-     display: flex;
+    display: flex;
     justify-content: space-around;
     padding-bottom: 8%;
     padding-top: 5%;
-
+    min-height: 100vh;
     .contact-form h1 {
         font-size: 80px;
         margin-bottom: 20px;
@@ -14,8 +14,6 @@
         font-size: 80px;
         color: $Pink;
         margin-bottom: 20px;
-
-
     }
 
     .contact-form p {

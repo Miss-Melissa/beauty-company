@@ -6,10 +6,10 @@ function AboutUs() {
     return (
         <div className='about'>
             <div className='content'>
-                <img src={About} alt="React Logo" />
+                <img src={About} alt="" />
                 <div class Name='about-text'>
                     <div className='text'>
-                        <h1>About Us</h1>
+                        <h1>About <span>Us</span></h1>
 
                         <h5>MakeUp<span> & Beauty</span></h5>
                         <p>

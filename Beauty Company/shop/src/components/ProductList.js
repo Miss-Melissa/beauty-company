@@ -40,24 +40,7 @@ function ProductList(props) {
                                 add to cart
                             </button>
                         </div>
-                        <div>
-                            <button
-                                onClick={() => dispatch({ type: "INCREASE", payload: element })}>
-                                +
-                            </button>
-
-                            {total}
-                            <button
-                                onClick={() => {
-                                    if (total > 1) {
-                                        dispatch({ type: "DECREASE", payload: element });
-                                    } else {
-                                        dispatch({ type: "REMOVE", payload: element });
-                                    }
-                                }}>
-                                -
-                            </button>
-                        </div>
+                      
                         <br></br>
                         <Link to="/products"><button>Go back</button></Link>
                     </div>

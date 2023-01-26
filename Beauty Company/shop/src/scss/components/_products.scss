@@ -1,0 +1,120 @@
+.container-products {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: auto;
+    background-color: #ffeaed;
+    padding-top: 5%;
+    padding-bottom: 10%;
+    .header-products h1 {
+        font-size: 4em;
+        text-transform: uppercase;
+    }
+
+    .products-box {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        padding: 10px;
+
+        .products {
+            margin: 20px;
+            display: grid;
+        }
+
+        .product {
+            position: relative;
+            background-color: white;
+            width: 350px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, .3);
+            display: flex;
+            flex-direction: column;
+            padding: 100px 20px 40px;
+            border-radius: 10px;
+            transition: .3s;
+        }
+
+        .product:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 5px 10px rgb;
+        }
+
+        .products-image {
+            width: 100%;
+            height: 60%;
+            display: grid;
+            place-items: center;
+        }
+
+        .products-image img {
+            width: 300px;
+        }
+
+
+        .title-price {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: 20%;
+        }
+
+
+
+        .title-price span {
+            font-size: 2em;
+            color: $Pink;
+        }
+
+
+        .read-more-btn {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+        }
+
+
+        .read-more-btn button {
+            padding: 10px 20px;
+            border-radius: 7px;
+            border: none;
+            font-size: 18px;
+            color: White;
+            font-weight: 400;
+            background-color: $Pink;
+            text-transform: capitalize;
+            cursor: pointer;
+            transition: .5s;
+        }
+
+
+        .read-more-btn button:hover {
+            transform: scale(1.1);
+        }
+
+    }
+}
+
+
+
+@media (max-width: 1600px) {
+
+    .container-products .products-box {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+
+
+@media (max-width: 1170px) {
+
+    .container-products .products-box {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 800px) {
+
+    .container-products .products-box {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
