@@ -65,7 +65,7 @@ nav {
       font-size: 35px;
       text-decoration: none;
       padding-left: 5%;
-      font-weight: 400;
+      font-weight: 600;
       .logoTwo {
         font-size: 35px;
         color: black;
@@ -96,7 +96,7 @@ nav {
     margin: 0;
     padding: 8px;
     border-radius: 2px;
-    font-weight:300;
+    font-weight:800;
     text-transform: uppercase;
   }
 
@@ -121,6 +121,19 @@ nav {
 
 .navbar-links-box {
   display: none;
+}
+
+@media (max-width: 800px) {
+  nav .navbar .logoOne {
+    font-size: 25px;
+    span.logoTwo {
+      font-size: 25px;
+    
+    }
+}
+
+
+
 }
 
 
@@ -217,6 +230,7 @@ nav {
     font-weight: 300;
     text-transform: uppercase;
     transition-duration: .25s;
+    font-weight: 600;
   }
 
   .menu__item:hover {

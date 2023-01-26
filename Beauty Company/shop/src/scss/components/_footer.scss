@@ -13,7 +13,7 @@
   }
 
   .footer-container .sec.aboutus {
-    width: 20%;
+    width: 30%;
     padding-bottom: 2%;
     border-bottom: 1px solid black;
   }
@@ -74,14 +74,13 @@
   }
 
   .sec.quickLinks a {
-    color: black;
+    color: white;
     display: block;
     padding: 0 0 10px;
   }
 
   .sec.quickLinks a:hover {
-    color: white;
-
+    color: black;
   }
 }
 
@@ -115,21 +114,13 @@
   color: $White;
 }
 
-.footer-container .sec.contact h2::before {
-  content: "";
-  position: absolute;
-  bottom: -5px;
-  left: 0;
-  width: 50px;
-  height: 2px;
-  background: black;
-}
 
-.footer-container .sec.contact p {
+
+.footer-container .sec.contact-about p {
   color: white;
 }
 
-.footer-container .sec.contact span {
+.footer-container .sec.contact-about span {
   color: black;
 }
 
@@ -159,11 +150,11 @@ span.spanTwo {
     border-bottom: 1px solid black;
 }
 
-.footer-container .sec.contact {
+.footer-container .sec.contact-about {
   width: 100%!important;
 }
 
-.footer-container .sec.contact h2 {
+.footer-container .sec.contact-about h2 {
   margin-top: 0%;
 }
   }

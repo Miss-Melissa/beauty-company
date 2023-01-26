@@ -30,7 +30,7 @@ function Footer() {
 
 
 
-                <div className='sec contact'>
+                <div className='sec contact-about'>
                     <h2>Contact us</h2>
 
                     <p >
