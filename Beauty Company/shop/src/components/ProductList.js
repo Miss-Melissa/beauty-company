@@ -5,46 +5,37 @@ function ProductList(props) {
 
 
     const product = props.product;
-    const title = props.title
     const Cartcontext = props.items
-
-
-
-
-
-
-
 
     const Globalstate = useContext(Cartcontext);
     const dispatch = Globalstate.dispatch;
-    const state = Globalstate.state;
-    const total = state.reduce((total, item) => {
-        return (total + item.quantity)
-    }, 0)
-    console.log(total)
-
+  
 
     return (
-        <div>
-            <h1>{title}</h1>
+
+        <div className='body-product'>
             {Array.isArray(product.data)
                 ? product.data.map((element, id) => {
                     element.quantity = 1;
-                    return <div key={id}>
-                        <img src={`http://localhost:8030/src/image/${element.image}`} alt={element.productname} height="200px" width="200px" />
-                        <h2>{element.productname}</h2>
-                        <p>{element.productprice} kr</p>
-                        <p>{element.productdesc}</p>
-                        <div>
-                            <button onClick={() => dispatch({ type: "ADD", payload: element })}>
-                                add to cart
-                            </button>
+                    return <div key={id} className="product">
+                            <div className="product-img">
+                                <img src={`http://localhost:8030/src/image/${element.image}`} alt={element.productname} height="200px" width="200px" />
+                                {/* <span className="tag">new</span> */}
+                            </div>
+                            <div className="product-listing">
+                                <div className="content">
+                                    <h1 className="name">{element.productname}</h1>
+                                    <p className="info">{element.productdesc}</p>
+                                    <p className="price">$ {element.productprice}</p>
+                                    <div className="btn-box">
+                                    <Link to="/products"><button className="btn" >go back</button></Link>
+                                        <button className="btn" onClick={() => dispatch({ type: "ADD", payload: element })}>
+                                            buy now
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                      
-                        <br></br>
-                        <Link to="/products"><button>Go back</button></Link>
-                    </div>
-
                 })
                 : null}
         </div>

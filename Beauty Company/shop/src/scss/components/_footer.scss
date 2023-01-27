@@ -12,21 +12,20 @@
     flex-direction: row;
   }
 
-  .footer-container .sec.aboutus {
+  .footer-container .sec.contact-about{
     width: 30%;
     padding-bottom: 2%;
-    border-bottom: 1px solid black;
   }
 
   .footer-container .sec.aboutus h2 {
-    position: relative;
+    color: $White;
+    position: relative !important;
     color: white;
     font-weight: 600;
     margin-bottom: 20px;
-    text-transform: capitalize;
   }
 
-  .footer-container .aboutus h2::before {
+  .footer-container .sec.contact-about h2::before {
     content: "";
     position: absolute;
     bottom: -5px;
@@ -89,7 +88,7 @@
   width: calc(40% - 60px);
 }
 
-.footer-container .sec.contact h2 {
+.footer-container .sec.contact-about h2 {
   color: $White;
   position: relative !important;
   color: white;
@@ -109,25 +108,11 @@
 
 .spanOne {
   color: $White;
-  font-weight: 400;
 }
-.spanTwo {
-  color: $White;
-}
-
-
-
-.footer-container .sec.contact-about p {
-  color: white;
-}
-
-.footer-container .sec.contact-about span {
+span .spanTwo {
   color: black;
 }
 
-span.spanTwo {
-  color: white !important;
-}
 
 @media (max-width: 991px) {
   .footer {
@@ -151,11 +136,11 @@ span.spanTwo {
     border-bottom: 1px solid black;
 }
 
-.footer-container .sec.contact-about {
+.footer-container .sec.contact {
   width: 100%!important;
 }
 
-.footer-container .sec.contact-about h2 {
+.footer-container .sec.contact h2 {
   margin-top: 0%;
 }
   }
