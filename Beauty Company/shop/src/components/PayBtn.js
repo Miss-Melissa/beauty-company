@@ -22,7 +22,7 @@ function PayBtn(items, userid) {
 
     return (
         <div>
-            <button onClick={() => checkoutBtn()}>
+            <button className='checkout-btn' onClick={() => checkoutBtn()}>
                 Checkout
             </button>
         </div>

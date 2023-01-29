@@ -26,7 +26,7 @@ function ProductList(props) {
                                 <div className="content">
                                     <h1 className="name">{element.productname}</h1>
                                     <p className="info">{element.productdesc}</p>
-                                    <p className="price">$ {element.productprice}</p>
+                                    <p className="price">{element.productprice} Kr</p>
                                     <div className="btn-box">
                                     <Link to="/products"><button className="btn" >go back</button></Link>
                                         <button className="btn" onClick={() => dispatch({ type: "ADD", payload: element })}>

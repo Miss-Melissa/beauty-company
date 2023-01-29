@@ -24,7 +24,7 @@ function ProductsList(props) {
                                 </div>
                                 <div className='title-price'>
                                     <h3>{element.productname}</h3>
-                                    <span>$ {element.productprice}</span>
+                                    <span>{element.productprice} Kr</span>
                                 </div>
                                 <div className='read-more-btn'>
                                     <Link to={`/product/${element.id}`}><button>Go to product</button></Link>

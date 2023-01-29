@@ -1,6 +1,8 @@
 import React, { useContext } from 'react'
 import { Cartcontext } from '../context/Cart'
-
+import PayBtn from '../components/PayBtn';
+import { Link } from 'react-router-dom';
+import { FaTimesCircle } from 'react-icons/fa';
 
 function CartList(props) {
 
@@ -13,52 +15,107 @@ function CartList(props) {
     const total = state.reduce((total, item) => {
         return (total + item.productprice * item.quantity)
     }, 0)
-
+    const totalitems = state.reduce((total, item) => {
+        return (total + item.quantity)
+    }, 0)
     return (
-        <div>
-            {state.map((item, id) => {
-                return (
-                    <div key={id}>
-                        <img src={`http://localhost:8030/src/image/${item.image}`} alt={item.productname} height="50px" width="50px" />
-                        <p key={item.id}>{item.productname}</p>
-                        <p>{item.quantity * item.productprice}</p>
-                        <div>
-                            <button
-                                onClick={() => dispatch({ type: "INCREASE", payload: item })}>
-                                +
-                            </button>
-                            <p>{item.quantity}</p>
-                            <button
-                                onClick={() => {
-                                    if (item.quantity > 1) {
-                                        dispatch({ type: "DECREASE", payload: item });
-                                    } else {
-                                        dispatch({ type: "REMOVE", payload: item });
-                                    }
-                                }}>
-                                -
-                            </button>
-                        </div>
-                        <h2 onClick={() => dispatch({ type: "REMOVE", payload: item })}>
-                            x
-                        </h2>
-                    </div>
-                );
-            }
-
-            )}
-            <button onClick={() => dispatch({ type: "CLEAR", payload: items })}>CLEAR</button>
-
-
-            <br></br>
-            <div>
-                {state.length > 0 && (
-                    <div className="total">
-                        <h2>{total}</h2>
-                    </div>
-                )}
+        // <div className='cart-box'>
+        <div className='cart-box'>
+            <div className='cart-header'>
+                <h3 className='cart-heading'>Shopping Cart</h3>
+                <h5 className='cart-action'><Link to onClick={() => dispatch({ type: "CLEAR", payload: items })}>Remove all</Link></h5>
             </div>
+            <table className='cart-table'>
+                <thead>
+                    <tr>
+                        <td>Remove</td>
+                        <td>Image</td>
+                        <td>Prouduct</td>
+                        <td>Price</td>
+                        <td>Quantity</td>
+                        <td>Subtotal</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {state.map((item, id) => {
+                        return (<tr key={id}>
+                            <td><FaTimesCircle /></td>
+                            <td><img src={`http://localhost:8030/src/image/${item.image}`} className='cart-img' alt={item.productname} /></td>
+                            <td>{item.productname}</td>
+                            <td>{item.productprice} Kr</td>
+                            <td>
+                                <div className='cart-counter'>
+                                    <div className='cart-count-btn' onClick={() => {
+                                        if (item.quantity > 1) {
+                                            dispatch({ type: "DECREASE", payload: item });
+                                        } else {
+                                            dispatch({ type: "REMOVE", payload: item });
+                                        }
+                                    }}>
+                                        -
+                                    </div>
+
+                                    <div className='cart-count'>{item.quantity}</div>
+
+                                    <div onClick={() => dispatch({ type: "INCREASE", payload: item })} className='cart-count-btn'>+</div>
+                                </div>
+                            </td>
+                            <td>{item.quantity * item.productprice} Kr</td>
+                        </tr>
+                        );
+                    }
+                    )}
+
+                </tbody>
+            </table>
+
+            <div className='cart-add'>
+                <div className='coupon'>
+                    <h3>Apply Coupon</h3>
+                    <div>
+                        <input type='text' placeholder='Enter Your Coupon' />
+                        <button className='normal'>Apply</button>
+                    </div>
+                </div>
+
+                <div className='subtotal'>
+                    <h3>Cart Totals</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>Cart Subtotal</td>
+                                <td>
+                                    {state.length > 0 && (
+                                        <div className='cart-total-amount'>
+                                            {total} Kr
+                                        </div>)}
+                                </td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Shipping</td>
+                                <td>Free</td>
+                            </tr>
+                        </tbody>
+                        <tbody>
+                            <tr>
+                                <td>Total</td>
+                                <td>{state.length > 0 && (
+                                    <div className='cart-total-amount'>
+                                        {total} Kr
+                                    </div>
+                                )}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <PayBtn items={items} />
+
         </div>
+
     )
 }
 

@@ -1,7 +1,12 @@
 import React from 'react'
-localStorage.removeItem('product');
+
+
 
 function CheckoutSuccess() {
+    localStorage.removeItem('product');
+    localStorage.clear();
+
+    
     return (
         <div>CheckoutSuccess</div>
     )
